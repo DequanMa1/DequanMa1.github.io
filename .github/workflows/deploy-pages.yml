@@ -6,6 +6,7 @@ on:
     paths:
       - site.zip
       - site-v2.zip
+      - site-v3.zip
       - .github/workflows/deploy-pages.yml
   workflow_dispatch:
 
@@ -35,6 +36,10 @@ jobs:
         run: |
           mkdir -p _site/v2
           unzip -q site-v2.zip -d _site/v2
+      - name: Add V3 without changing the original site or V2
+        run: |
+          mkdir -p _site/v3
+          unzip -q site-v3.zip -d _site/v3
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Upload GitHub Pages artifact
