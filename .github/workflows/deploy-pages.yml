@@ -9,6 +9,7 @@ on:
       - site-v3.zip
       - site-v4.zip
       - site-v5.zip
+      - site-v8.zip
       - .github/workflows/deploy-pages.yml
   workflow_dispatch:
 
@@ -50,6 +51,10 @@ jobs:
         run: |
           mkdir -p _site/v5
           unzip -q site-v5.zip -d _site/v5
+      - name: Add independent V8
+        run: |
+          mkdir -p _site/v8
+          unzip -q site-v8.zip -d _site/v8
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Upload GitHub Pages artifact
